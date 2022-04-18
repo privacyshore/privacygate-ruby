@@ -4,17 +4,17 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "lib"))
 require 'coinbase_commerce/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "coinbase_commerce"
-  gem.version       = CoinbaseCommerce::VERSION
+  gem.name          = "privacygate"
+  gem.version       = "1.0.0"
   gem.license       = "MIT"
   gem.required_ruby_version = ">= 2.0.0"
-  gem.authors       = ["Coinbase Commerce",]
+  gem.authors       = ["Coinbase Commerce", "PrivacyGate"]
 
-  gem.description   = "Client library for Coinbase Commerce API"
-  gem.summary       = "Client library for Coinbase Commerce API"
-  gem.homepage      = "https://commerce.coinbase.com/docs/api/"
+  gem.description   = "Client library for PrivacyGate API"
+  gem.summary       = "Client library for PrivacyGate API"
+  gem.homepage      = "https://privacygate.io/docs/"
 
-  gem.files         = `git ls-files`.split($/)
+  gem.files         = `git ls-files`.sub("coinbase_commerce.gemspec", "privacygate.gemspec").split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(spec|gem|features)/})
   gem.require_paths = ["lib"]
