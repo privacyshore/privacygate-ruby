@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/coinbase/coinbase-commerce-ruby.svg?style=svg)](https://circleci.com/gh/coinbase/coinbase-commerce-ruby)
+[![CircleCI](https://circleci.com/gh/coinbase/privacygate-ruby.svg?style=svg)](https://circleci.com/gh/coinbase/privacygate-ruby)
 
-# coinbase-commerce-ruby
+# privacygate-ruby
 **Note: This repository is not actively maintained.**
 
 Coinbase Commerce Ruby Gem
@@ -30,7 +30,7 @@ The following libraries will be installed when you install the client library:
 
 ## Documentation
 
-For more details visit [Coinbase API docs](https://commerce.coinbase.com/docs/api/).
+For more details visit [Coinbase API docs](https://privacygate.io/docs/).
 
 To start using library, you'll need to [create a Coinbase Commmerce account](https://commerce.coinbase.com/signup).
 Once you've created your Coinbase Commerce account, create an ``API_KEY`` in Settings.
@@ -110,7 +110,7 @@ require 'coinbase_commerce'
 client = CoinbaseCommerce::Client.new(api_key: 'your_api_key')
 ```
 ## Checkouts 
-[Checkouts API docs](https://commerce.coinbase.com/docs/api/#checkouts)
+[Checkouts API docs](https://privacygate.io/docs/#checkouts)
 ### Retrieve
 ```ruby
 checkout = client.checkout.retrieve <checkout_id>
@@ -168,7 +168,7 @@ client.checkout.auto_paging  do |ch|
 end
 ```
 ## Charges
-[Charges API docs](https://commerce.coinbase.com/docs/api/#charges)
+[Charges API docs](https://privacygate.io/docs/#charges)
 ### Retrieve
 ```ruby
 charge = client.charge.retrieve <charge_id>
@@ -208,7 +208,7 @@ client.charge.auto_paging do |charge|
 end
 ```
 ## Events
-[Events API Docs](https://commerce.coinbase.com/docs/api/#events)
+[Events API Docs](https://privacygate.io/docs/#events)
 ### Retrieve
 ```ruby
 event = client.event.retrieve <event_id>
@@ -261,10 +261,3 @@ end
 ### Testing and Contributing
 Any and all contributions are welcome! The process is simple: fork this repo, make your changes, add tests, run the test suite, and submit a pull request. Tests are run via rspec. To run the tests, clone the repository and then:
 
-    # Install the requirements
-    gem install coinbase_commerce
-    rspec spec
-    
-    # or via Bundle
-    bundle install
-    bundle exec rspec spec
