@@ -28,16 +28,36 @@ Ruby 2.3, 2.4, 2.5, 2.6RC are supported and tested.
 The following libraries will be installed when you install the client library:
 * [faraday](https://github.com/lostisland/faraday)
 
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'privacygate'
+```
+Then execute:
+
+```sh
+bundle install
+```
+
+Or install it yourself as:
+
+```sh
+gem install privacygate
+```
+
 ## Documentation
 
-For more details visit [Coinbase API docs](https://privacygate.io/docs/).
+For more details visit [PrivacyGate API docs](https://privacygate.io/docs/).
 
-To start using library, you'll need to [create a Coinbase Commmerce account](https://commerce.coinbase.com/signup).
+To start using library, you'll need to [create a PrivacyGate account](https://commerce.coinbase.com/signup).
 Once you've created your Coinbase Commerce account, create an ``API_KEY`` in Settings.
 
 Next create a ``Client`` object for interacting with the API:
 ```ruby
-require 'coinbase_commerce'
+require 'privacygate'
 
 API_KEY = "API KEY"
 client = CoinbaseCommerce::Client.new(api_key: API_KEY)
@@ -89,7 +109,7 @@ All errors occuring during the interaction with the API will be raised as except
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'coinbase_commerce'
+gem 'privacygate'
 ```
 Then execute:
 
@@ -100,12 +120,12 @@ bundle install
 Or install it yourself as:
 
 ```sh
-gem install coinbase_commerce
+gem install privacygate
 ```
 
 ## Usage
 ```ruby
-require 'coinbase_commerce'
+require 'privacygate'
 
 client = CoinbaseCommerce::Client.new(api_key: 'your_api_key')
 ```
