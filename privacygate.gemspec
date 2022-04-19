@@ -5,7 +5,7 @@ require 'privacygate/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "privacygate"
-  gem.version       = "1.0.0"
+  gem.version       = "1.1.0"
   gem.license       = "MIT"
   gem.required_ruby_version = ">= 2.0.0"
   gem.authors       = ["PrivacyGate"]
