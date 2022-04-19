@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'webmock/rspec'
 Bundler.setup
-require 'coinbase_commerce'
+require 'privacygate'
 
 def mock_item
   {:id => "val", :key => "val"}

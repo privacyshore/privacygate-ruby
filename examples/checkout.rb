@@ -1,6 +1,6 @@
-require 'coinbase_commerce'
+require 'privacygate'
 
-client = CoinbaseCommerce::Client.new(api_key: 'your_api_key')
+client = PrivacyGate::Client.new(api_key: 'your_api_key')
 
 # create checkout
 data = {

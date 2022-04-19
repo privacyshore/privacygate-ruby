@@ -1,9 +1,5 @@
-[![CircleCI](https://circleci.com/gh/coinbase/privacygate-ruby.svg?style=svg)](https://circleci.com/gh/coinbase/privacygate-ruby)
-
 # privacygate-ruby
-**Note: This repository is not actively maintained.**
-
-Coinbase Commerce Ruby Gem
+PrivacyGate Ruby Gem
 
 # Table of contents
 
@@ -28,19 +24,39 @@ Ruby 2.3, 2.4, 2.5, 2.6RC are supported and tested.
 The following libraries will be installed when you install the client library:
 * [faraday](https://github.com/lostisland/faraday)
 
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'privacygate'
+```
+Then execute:
+
+```sh
+bundle install
+```
+
+Or install it yourself as:
+
+```sh
+gem install privacygate
+```
+
 ## Documentation
 
-For more details visit [Coinbase API docs](https://privacygate.io/docs/).
+For more details visit [PrivacyGate API docs](https://privacygate.io/docs/).
 
-To start using library, you'll need to [create a Coinbase Commmerce account](https://commerce.coinbase.com/signup).
-Once you've created your Coinbase Commerce account, create an ``API_KEY`` in Settings.
+To start using library, you'll need to [create a PrivacyGate account](https://dash.privacygate.io).
+Once you've created your PrivacyGate account, create an ``API_KEY`` in Settings.
 
 Next create a ``Client`` object for interacting with the API:
 ```ruby
-require 'coinbase_commerce'
+require 'privacygate'
 
 API_KEY = "API KEY"
-client = CoinbaseCommerce::Client.new(api_key: API_KEY)
+client = PrivacyGate::Client.new(api_key: API_KEY)
 
 ```
 
@@ -89,7 +105,7 @@ All errors occuring during the interaction with the API will be raised as except
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'coinbase_commerce'
+gem 'privacygate'
 ```
 Then execute:
 
@@ -100,14 +116,14 @@ bundle install
 Or install it yourself as:
 
 ```sh
-gem install coinbase_commerce
+gem install privacygate
 ```
 
 ## Usage
 ```ruby
-require 'coinbase_commerce'
+require 'privacygate'
 
-client = CoinbaseCommerce::Client.new(api_key: 'your_api_key')
+client = PrivacyGate::Client.new(api_key: 'your_api_key')
 ```
 ## Checkouts 
 [Checkouts API docs](https://privacygate.io/docs/#checkouts)
@@ -237,7 +253,7 @@ post '/webhooks' do
   sig_header = request.env['HTTP_X_CC_WEBHOOK_SIGNATURE']
 
   begin
-    event = CoinbaseCommerce::Webhook.construct_event(request_payload, sig_header, WEBHOOK_SECRET)
+    event = PrivacyGate::Webhook.construct_event(request_payload, sig_header, WEBHOOK_SECRET)
     # event handle
     puts "Received event id=#{event.id}, type=#{event.type}"
     status 200
@@ -246,11 +262,11 @@ post '/webhooks' do
     puts "json parse error"
     status 400
     return
-  rescue CoinbaseCommerce::Errors::SignatureVerificationError => e
+  rescue PrivacyGate::Errors::SignatureVerificationError => e
     puts "signature verification error"
     status 400
     return
-  rescue CoinbaseCommerce::Errors::WebhookInvalidPayload => e
+  rescue PrivacyGate::Errors::WebhookInvalidPayload => e
     puts "missing request or headers data"
     status 400
     return

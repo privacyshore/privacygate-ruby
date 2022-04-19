@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe CoinbaseCommerce do
+describe PrivacyGate do
   before :all do
-    @client = CoinbaseCommerce::Client.new(api_key: 'api_key')
+    @client = PrivacyGate::Client.new(api_key: 'api_key')
     @api_base = @client.instance_variable_get :@api_uri
   end
 
@@ -13,7 +13,7 @@ describe CoinbaseCommerce do
     charge_list = @client.charge.list
     expect(charge_list).is_a? @client.charge
     expect(charge_list.data).is_a? Array
-    expect(charge_list.pagination).is_a? CoinbaseCommerce::APIResources::Base::APIObject
+    expect(charge_list.pagination).is_a? PrivacyGate::APIResources::Base::APIObject
     expect(charge_list.data[0].to_hash).to eq mock_item
   end
 
@@ -22,7 +22,7 @@ describe CoinbaseCommerce do
     checkout_list = @client.checkout.list
     expect(checkout_list).is_a? @client.checkout
     expect(checkout_list.data).is_a? Array
-    expect(checkout_list.pagination).is_a? CoinbaseCommerce::APIResources::Base::APIObject
+    expect(checkout_list.pagination).is_a? PrivacyGate::APIResources::Base::APIObject
     expect(checkout_list.data[0].to_hash).to eq mock_item
   end
 
@@ -31,7 +31,7 @@ describe CoinbaseCommerce do
     event_list = @client.event.list
     expect(event_list).is_a? @client.checkout
     expect(event_list.data).is_a? Array
-    expect(event_list.pagination).is_a? CoinbaseCommerce::APIResources::Base::APIObject
+    expect(event_list.pagination).is_a? PrivacyGate::APIResources::Base::APIObject
     expect(event_list.data[0].to_hash).to eq mock_item
   end
 
@@ -41,7 +41,7 @@ describe CoinbaseCommerce do
     stub_request(:get, "#{@api_base}charges/key").to_return(body: {data: mock_item}.to_json)
     charge = @client.charge.retrieve :key
     expect(charge).is_a? @client.charge
-    expect(charge).is_a? CoinbaseCommerce::APIResources::Base::APIObject
+    expect(charge).is_a? PrivacyGate::APIResources::Base::APIObject
     expect(charge.id).to eq mock_item[:id]
     expect(charge.key).to eq mock_item[:key]
   end
@@ -50,7 +50,7 @@ describe CoinbaseCommerce do
     stub_request(:get, "#{@api_base}checkouts/key").to_return(body: {data: mock_item}.to_json)
     checkout = @client.checkout.retrieve :key
     expect(checkout).is_a? @client.checkout
-    expect(checkout).is_a? CoinbaseCommerce::APIResources::Base::APIObject
+    expect(checkout).is_a? PrivacyGate::APIResources::Base::APIObject
     expect(checkout.id).to eq mock_item[:id]
     expect(checkout.key).to eq mock_item[:key]
   end
@@ -59,7 +59,7 @@ describe CoinbaseCommerce do
     stub_request(:get, "#{@api_base}events/key").to_return(body: {data: mock_item}.to_json)
     event = @client.event.retrieve :key
     expect(event).is_a? @client.charge
-    expect(event).is_a? CoinbaseCommerce::APIResources::Base::APIObject
+    expect(event).is_a? PrivacyGate::APIResources::Base::APIObject
     expect(event.id).to eq mock_item[:id]
     expect(event.key).to eq mock_item[:key]
   end
@@ -69,7 +69,7 @@ describe CoinbaseCommerce do
     stub_request(:post, "#{@api_base}charges").to_return(body: {data: mock_item}.to_json)
     charge = @client.charge.create(mock_item)
     expect(charge).is_a? @client.charge
-    expect(charge).is_a? CoinbaseCommerce::APIResources::Base::APIObject
+    expect(charge).is_a? PrivacyGate::APIResources::Base::APIObject
     expect(charge.id).to eq mock_item[:id]
     expect(charge.key).to eq mock_item[:key]
   end
@@ -78,7 +78,7 @@ describe CoinbaseCommerce do
     stub_request(:post, "#{@api_base}checkouts").to_return(body: {data: mock_item}.to_json)
     checkout = @client.checkout.create(mock_item)
     expect(checkout).is_a? @client.checkout
-    expect(checkout).is_a? CoinbaseCommerce::APIResources::Base::APIObject
+    expect(checkout).is_a? PrivacyGate::APIResources::Base::APIObject
     expect(checkout.id).to eq mock_item[:id]
     expect(checkout.key).to eq mock_item[:key]
   end
